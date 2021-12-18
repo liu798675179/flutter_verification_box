@@ -193,8 +193,10 @@ class _VerificationBox extends State<VerificationBox> {
       cursorWidth: 0,
       autofocus: widget.autoFocus,
       inputFormatters: [
-        WhitelistingTextInputFormatter(RegExp("[0-9]")),
-      ],
+        FilteringTextInputFormatter(RegExp("[0-9]"), allow: true),
+//      高版本flutter出现报错，没有此类型，用Filtering替换即可
+//      WhitelistingTextInputFormatter(RegExp("[0-9]")),
+      
       maxLength: widget.count,
       buildCounter: (
         BuildContext context, {
